@@ -60,6 +60,7 @@ using namespace OpenZWave;
 #include "Proprietary.h"
 #include "Protection.h"
 #include "SceneActivation.h"
+#include "Security.h"
 #include "SensorAlarm.h"
 #include "SensorBinary.h"
 #include "SensorMultilevel.h"

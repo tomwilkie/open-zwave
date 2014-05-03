@@ -581,7 +581,8 @@ OPENZWAVE_EXPORT_WARNINGS_ON
 	public:
 		enum MsgQueue
 		{
-			MsgQueue_Command = 0,
+			MsgQueue_Security = 0,
+			MsgQueue_Command,
 			MsgQueue_NoOp,
 			MsgQueue_Controller,
 			MsgQueue_WakeUp,
@@ -629,7 +630,12 @@ OPENZWAVE_EXPORT_WARNINGS_ON
 		// Requests to be sent to nodes are assigned to one of five queues.
 		// From highest to lowest priority, these are
 		//
-		// 1)	The command queue, for controller commands.  This is the highest
+		// 0)   The security queue, for handling encrypted messages.  This is the
+		//              highest priority send queue, because the security process inserts
+		//              messages to handle the encryption process that must be sent before
+		//              a new message can be wrapped.		
+		//
+		// 1)	The command queue, for controller commands.  This is the 2nd highest
 		//		priority send queue, because the controller command processes are not
 		//		permitted to be interupted by other requests.
 		//
